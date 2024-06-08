@@ -1,4 +1,53 @@
 <h1 align="center">jlImGui (Jaylib ImGui).</h1><p align="center"><img src="https://github.com/violent-studio/jlImGui/assets/94743980/be876982-f262-488a-bfa5-6d53ffd31650"></p>
+
+```java
+import static com.raylib.Raylib.InitWindow;
+import static com.raylib.Raylib.SetTargetFPS;
+import static com.raylib.Raylib.WindowShouldClose;
+import static com.raylib.Raylib.BeginDrawing;
+import static com.raylib.Raylib.ClearBackground;
+import static com.raylib.Raylib.EndDrawing;
+import static com.raylib.Raylib.CloseWindow;
+
+import static com.raylib.Jaylib.BLACK;
+
+import jlImGui.JaylibImGui;
+
+import imgui.ImGui;
+
+public class SourceBunnyHopSimulator {
+    public static void main(String[] args) {
+        InitWindow(1600, 800, "Window!"); // Initialization.
+
+        SetTargetFPS(60);
+
+        JaylibImGui.setupImGui(330); // Setup ImGui (330 - GLSL Version).
+
+        while (!WindowShouldClose()) {
+            BeginDrawing();
+
+            ClearBackground(BLACK);
+
+            JaylibImGui.process(); // Process keyboard/mouse/etc.
+
+            ImGui.newFrame(); // Create new ImGui frame.
+
+            ImGui.showDemoWindow(); // Show Demo Window.
+
+            ImGui.endFrame(); // End ImGui frame.
+
+            JaylibImGui.render(); // Render ImGui & draw data.
+
+            EndDrawing();
+        }
+
+        JaylibImGui.disposeNDestroy(); // Dispose and destroy ImGui context.
+
+        CloseWindow();
+    }
+}
+```
+
 <h3>Specification.</h3>
 <ul>
   <li>Java version used in jlImGui: <code>8+</code>.</li>
@@ -18,6 +67,7 @@ To integrate <code>jlImGui</code> into your Java project you have to install <a 
   <li>No gamepad support: <code>jlImGui</code> does not provide gamepad support for ImGui.</li>
   <li>Window resize issue: While resizing Raylib window, ImGui window begins to stretch and restores only after resizing operation stopped.</li>
   <li>Window size issue: ImGui mouse Y coordinate is being higher than actual mouse position if Raylib window height is larger than monitor height. Potential fix is to make sure to normalize window size/position in your code.</li>
+  <li>No documentation: Create simple project documentation.</li>
 </ul>
 
 <h3>Contribution & License</h3>
