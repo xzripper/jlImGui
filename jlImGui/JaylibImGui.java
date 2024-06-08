@@ -103,9 +103,9 @@ import imgui.ImGuiIO;
 
 import imgui.flag.ImGuiKey;
 
-import imgui.flag.ImGuiConfigFlags;
-
 import imgui.flag.ImGuiMouseCursor;
+
+import imgui.flag.ImGuiConfigFlags;
 
 import imgui.gl3.ImGuiImplGl3;
 
@@ -228,10 +228,10 @@ public class JaylibImGui {
             charPressed = GetCharPressed();
         }
 
-        io.setKeyCtrl(IsKeyDown(KEY_LEFT_CONTROL) || IsKeyDown(KEY_RIGHT_CONTROL));
-        io.setKeyShift(IsKeyDown(KEY_LEFT_SHIFT) || IsKeyDown(KEY_RIGHT_SHIFT));
-        io.setKeyAlt(IsKeyDown(KEY_LEFT_ALT) || IsKeyDown(KEY_RIGHT_ALT));
-        io.setKeySuper(IsKeyDown(KEY_LEFT_SUPER) || IsKeyDown(KEY_RIGHT_SUPER));
+        io.setKeyCtrl(IsKeyDown(KEY_RIGHT_CONTROL) || IsKeyDown(KEY_LEFT_CONTROL));
+        io.setKeyShift(IsKeyDown(KEY_RIGHT_SHIFT) || IsKeyDown(KEY_LEFT_SHIFT));
+        io.setKeyAlt(IsKeyDown(KEY_RIGHT_ALT) || IsKeyDown(KEY_LEFT_ALT));
+        io.setKeySuper(IsKeyDown(KEY_RIGHT_SUPER) || IsKeyDown(KEY_LEFT_SUPER));
 
         io.setDeltaTime(GetFrameTime());
 
@@ -244,9 +244,7 @@ public class JaylibImGui {
         }
 
         if(!io.hasConfigFlags(ImGuiConfigFlags.NoMouseCursorChange)) {
-            int cursor = ImGui.getMouseCursor();
-
-            switch(cursor) {
+            switch(ImGui.getMouseCursor()) {
                 case ImGuiMouseCursor.None:
                     HideCursor(); break;
 
