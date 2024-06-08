@@ -55,11 +55,11 @@ public class SourceBunnyHopSimulator {
   <li>Raylib version used in jlImGui: <code>4.5</code> (can be lower).</li>
   <li><a href="https://github.com/SpaiR/imgui-java">imgui-java</a> version used in jlImGui: <code>1.86.11-all</code>.</li>
   <li>imgui version used (and supported) in jlImGui: <code>1.86</code>.</li>
-  <li>jlImGui version: <code>1.0.0</code>.</li>
+  <li>jlImGui version: <code>1.0.1</code>.</li>
 </ul>
 
 <h3>Integration.</h3>
-To integrate <code>jlImGui</code> into your Java project you have to install <a href="https://github.com/violent-studio/jlImGui/releases/latest">latest</a> version of <code>jlImGui</code> (.zip), unzip folder (<code>jlImGui</code>) to your project main directory, after unzip <code>imgui-app-1.86.11-all.jar</code> to your project and add as a depedency in your editor/IDEA/terminal. It's important to add Raylib as a depedency too before running the code.
+To integrate <code>jlImGui</code> into your Java project you have to install <a href="https://github.com/violent-studio/jlImGui/releases/latest">latest</a> version of <code>jlImGui</code> (.zip), unzip folder (<code>jlImGui</code>) to your project main directory, after unzip <code>imgui-app-1.86.11-all.jar</code> to your project and add as a dependency in your editor/IDEA/terminal. It's important to add Raylib as a dependency too before running the code.
 
 <h3>Knows issues / TODO.</h3>
 <ul>
@@ -73,4 +73,4 @@ To integrate <code>jlImGui</code> into your Java project you have to install <a 
 <h3>Contribution & License</h3>
 Feel free to open issues and pull new requests to this project, we will make this project even better! This project has <code>MIT</code> license, it means you can do everything you want with it.
 
-<hr><p align="center">JlImGui V1.0.0</p>
+<hr><p align="center">JlImGui V1.0.1</p>
