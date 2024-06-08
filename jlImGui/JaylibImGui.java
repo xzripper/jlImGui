@@ -2,6 +2,10 @@
 
 package jlImGui;
 
+import static com.raylib.Raylib.GetScreenWidth;
+
+import static com.raylib.Raylib.GetScreenHeight;
+
 import static com.raylib.Raylib.GetMousePosition;
 
 import static com.raylib.Raylib.IsMouseButtonDown;
@@ -125,17 +129,15 @@ public class JaylibImGui {
     /**
      * Setup ImGui.
      *
-     * @param winW Window width.
-     * @param winH Window height.
      * @param glslV GLSL Version.
      * @param useIni Use INI save file?
      */
-    public static void setupImGui(int winW, int winH, int glslV, boolean useIni) {
+    public static void setupImGui(int glslV, boolean useIni) {
         ImGui.createContext();
 
         io = ImGui.getIO();
 
-        io.setDisplaySize(winW, winH);
+        io.setDisplaySize(GetScreenWidth(), GetScreenHeight());
 
         io.setDisplayFramebufferScale(GetWindowScaleDPI().x(), GetWindowScaleDPI().y());
 
@@ -192,18 +194,20 @@ public class JaylibImGui {
     /**
      * Setup ImGui.
      *
-     * @param winW Window width.
-     * @param winH Window height.
      * @param glslV GLSL Version.
      */
-    public static void setupImGui(int winW, int winH, int glslV) {
-        setupImGui(winW, winH, glslV, false);
+    public static void setupImGui(int glslV) {
+        setupImGui(glslV, false);
     }
 
     /**
      * Process ImGui things..
      */
     public static void process() {
+        io.setDisplaySize(GetScreenWidth(), GetScreenHeight());
+
+        io.setDisplayFramebufferScale(GetWindowScaleDPI().x(), GetWindowScaleDPI().y());
+
         io.setMousePos(GetMousePosition().x(), GetMousePosition().y());
 
         io.setMouseDown(0, IsMouseButtonDown(0));
@@ -244,59 +248,37 @@ public class JaylibImGui {
 
             switch(cursor) {
                 case ImGuiMouseCursor.None:
-                    HideCursor();
-
-                    break;
+                    HideCursor(); break;
 
                 case ImGuiMouseCursor.Arrow:
-                    SetMouseCursor(MOUSE_CURSOR_ARROW);
-
-                    break;
+                    SetMouseCursor(MOUSE_CURSOR_ARROW); break;
 
                 case ImGuiMouseCursor.TextInput:
-                    SetMouseCursor(MOUSE_CURSOR_IBEAM);
-
-                    break;
+                    SetMouseCursor(MOUSE_CURSOR_IBEAM); break;
 
                 case ImGuiMouseCursor.Hand:
-                    SetMouseCursor(MOUSE_CURSOR_POINTING_HAND);
-
-                    break;
+                    SetMouseCursor(MOUSE_CURSOR_POINTING_HAND); break;
 
                 case ImGuiMouseCursor.ResizeEW:
-                    SetMouseCursor(MOUSE_CURSOR_RESIZE_EW);
-
-                    break;
+                    SetMouseCursor(MOUSE_CURSOR_RESIZE_EW); break;
 
                 case ImGuiMouseCursor.ResizeNS:
-                    SetMouseCursor(MOUSE_CURSOR_RESIZE_NS);
-
-                    break;
+                    SetMouseCursor(MOUSE_CURSOR_RESIZE_NS); break;
 
                 case ImGuiMouseCursor.ResizeNWSE:
-                    SetMouseCursor(MOUSE_CURSOR_RESIZE_NWSE);
-
-                    break;
+                    SetMouseCursor(MOUSE_CURSOR_RESIZE_NWSE); break;
 
                 case ImGuiMouseCursor.ResizeNESW:
-                    SetMouseCursor(MOUSE_CURSOR_RESIZE_NESW);
-
-                    break;
+                    SetMouseCursor(MOUSE_CURSOR_RESIZE_NESW); break;
 
                 case ImGuiMouseCursor.ResizeAll:
-                    SetMouseCursor(MOUSE_CURSOR_RESIZE_ALL);
-
-                    break;
+                    SetMouseCursor(MOUSE_CURSOR_RESIZE_ALL); break;
 
                 case ImGuiMouseCursor.NotAllowed:
-                    SetMouseCursor(MOUSE_CURSOR_NOT_ALLOWED);
-
-                    break;
+                    SetMouseCursor(MOUSE_CURSOR_NOT_ALLOWED); break;
 
                 default:
-                    SetMouseCursor(MOUSE_CURSOR_DEFAULT);
-
-                    break;
+                    SetMouseCursor(MOUSE_CURSOR_DEFAULT); break;
             }
         }
     }
