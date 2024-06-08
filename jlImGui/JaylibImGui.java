@@ -119,12 +119,26 @@ public class JaylibImGui {
 
     private static ImGuiImplGl3 gl3Impl;
 
-    private static final int[] keysMap = {0, 39, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 59, 61, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 96, 32, 256, 257, 258, 259, 260, 261, 262, 263, 264, 265, 266, 267, 268, 269, 280, 281, 282, 283, 284, 290, 291, 292, 293, 294, 295, 296, 297, 298, 299, 300, 301, 340, 341, 342, 343, 344, 345, 346, 347, 348, 320, 321, 322, 323, 324, 325, 326, 327, 328, 329, 330, 331, 332, 333, 334, 335, 336, 4, 82, 24, 25};
+    private static final int[] keysMap = {
+            0, 39, 44, 45, 46, 47, 48, 49, 50, 51,
+            52, 53, 54, 55, 56, 57, 59, 61, 65, 66,
+            67, 68, 69, 70, 71, 72, 73, 74, 75, 76,
+            77, 78, 79, 80, 81, 82, 83, 84, 85, 86,
+            87, 88, 89, 90, 91, 92, 93, 96, 32, 256,
+            257, 258, 259, 260, 261, 262, 263, 264,
+            265, 266, 267, 268, 269, 280, 281, 282,
+            283, 284, 290, 291, 292, 293, 294, 295,
+            296, 297, 298, 299, 300, 301, 340, 341,
+            342, 343, 344, 345, 346, 347, 348, 320,
+            321, 322, 323, 324, 325, 326, 327, 328,
+            329, 330, 331, 332, 333, 334, 335, 336,
+            4, 82, 24, 25
+    };
 
     /**
      * Jaylib ImGui Version.
      */
-    public static final String jlImGuiVersion = "1.0.0";
+    public static final String jlImGuiVersion = "1.0.1";
 
     /**
      * Setup ImGui.
@@ -249,34 +263,34 @@ public class JaylibImGui {
                     HideCursor(); break;
 
                 case ImGuiMouseCursor.Arrow:
-                    SetMouseCursor(MOUSE_CURSOR_ARROW); break;
+                    ShowCursor(); SetMouseCursor(MOUSE_CURSOR_ARROW); break;
 
                 case ImGuiMouseCursor.TextInput:
-                    SetMouseCursor(MOUSE_CURSOR_IBEAM); break;
+                    ShowCursor(); SetMouseCursor(MOUSE_CURSOR_IBEAM); break;
 
                 case ImGuiMouseCursor.Hand:
-                    SetMouseCursor(MOUSE_CURSOR_POINTING_HAND); break;
+                    ShowCursor(); SetMouseCursor(MOUSE_CURSOR_POINTING_HAND); break;
 
                 case ImGuiMouseCursor.ResizeEW:
-                    SetMouseCursor(MOUSE_CURSOR_RESIZE_EW); break;
+                    ShowCursor(); SetMouseCursor(MOUSE_CURSOR_RESIZE_EW); break;
 
                 case ImGuiMouseCursor.ResizeNS:
-                    SetMouseCursor(MOUSE_CURSOR_RESIZE_NS); break;
+                    ShowCursor(); SetMouseCursor(MOUSE_CURSOR_RESIZE_NS); break;
 
                 case ImGuiMouseCursor.ResizeNWSE:
-                    SetMouseCursor(MOUSE_CURSOR_RESIZE_NWSE); break;
+                    ShowCursor(); SetMouseCursor(MOUSE_CURSOR_RESIZE_NWSE); break;
 
                 case ImGuiMouseCursor.ResizeNESW:
-                    SetMouseCursor(MOUSE_CURSOR_RESIZE_NESW); break;
+                    ShowCursor(); SetMouseCursor(MOUSE_CURSOR_RESIZE_NESW); break;
 
                 case ImGuiMouseCursor.ResizeAll:
-                    SetMouseCursor(MOUSE_CURSOR_RESIZE_ALL); break;
+                    ShowCursor(); SetMouseCursor(MOUSE_CURSOR_RESIZE_ALL); break;
 
                 case ImGuiMouseCursor.NotAllowed:
-                    SetMouseCursor(MOUSE_CURSOR_NOT_ALLOWED); break;
+                    ShowCursor(); SetMouseCursor(MOUSE_CURSOR_NOT_ALLOWED); break;
 
                 default:
-                    SetMouseCursor(MOUSE_CURSOR_DEFAULT); break;
+                    ShowCursor(); SetMouseCursor(MOUSE_CURSOR_DEFAULT); break;
             }
         }
     }
