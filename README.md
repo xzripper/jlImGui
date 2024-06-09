@@ -15,7 +15,7 @@ import jlImGui.JaylibImGui;
 
 import imgui.ImGui;
 
-public class SourceBunnyHopSimulator {
+public class Main {
     public static void main(String[] args) {
         InitWindow(1600, 800, "Window!"); // Initialization.
 
@@ -52,10 +52,10 @@ public class SourceBunnyHopSimulator {
 <ul>
   <li>Java version used in jlImGui: <code>8+</code>.</li>
   <li>lwjgl version used in jlImGui: <code>3.3.3</code>.</li>
-  <li>Raylib version used in jlImGui: <code>4.5</code> (can be lower).</li>
+  <li>Raylib version used in jlImGui: <code>4.5</code> (can be lower/higher).</li>
   <li><a href="https://github.com/SpaiR/imgui-java">imgui-java</a> version used in jlImGui: <code>1.86.11-all</code>.</li>
-  <li>imgui version used (and supported) in jlImGui: <code>1.86</code>.</li>
-  <li>jlImGui version: <code>1.0.1</code>.</li>
+  <li>Imgui version used (and supported) in jlImGui: <code>1.86</code>.</li>
+  <li>JlImGui version: <code>1.\1.1</code>.</li>
 </ul>
 
 <h3>Integration.</h3>
@@ -63,14 +63,14 @@ To integrate <code>jlImGui</code> into your Java project you have to install <a 
 
 <h3>Knows issues / TODO.</h3>
 <ul>
-  <li>Font loading issue: impossible to use custom font in ImGui window (research needed).</li>
+  <li><strike>Font loading issue: impossible to use custom font in ImGui window (research needed).</strike> (Fixed in <code>v1.1.1</code>).</li>
   <li>No gamepad support: <code>jlImGui</code> does not provide gamepad support for ImGui.</li>
-  <li>Window resize issue: While resizing Raylib window, ImGui window begins to stretch and restores only after resizing operation stopped.</li>
-  <li>Window size issue: ImGui mouse Y coordinate is being higher than actual mouse position if Raylib window height is larger than monitor height. Potential fix is to make sure to normalize window size/position in your code.</li>
-  <li>No documentation: Create simple project documentation.</li>
+  <li><strike>Window resize issue: While resizing Raylib window, ImGui window begins to stretch and restores only after resizing operation stopped.</strike> (Fix is <a href="https://github.com/ocornut/imgui/issues/3672">not available</a> for this time).</li>
+  <li><strike>Window size issue: ImGui mouse Y coordinate is being higher than actual mouse position if Raylib window height is larger than monitor height. Potential fix is to make sure to normalize window size/position in your code.</strike> (Fix is not available for this time; implemented warning (<code>System.err</code>) log to notify developer about window proportions; Added in <code>v1.1.1</code>).</li>
+  <li><strike>No documentation: Create simple project documentation.</strike> (Fixed in <code>v1.1.1</code>).</li>
 </ul>
 
 <h3>Contribution & License</h3>
 Feel free to open issues and pull new requests to this project, we will make this project even better! This project has <code>MIT</code> license, it means you can do everything you want with it.
 
-<hr><p align="center">JlImGui V1.0.1</p>
+<hr><p align="center">JlImGui V1.1.1</p>
