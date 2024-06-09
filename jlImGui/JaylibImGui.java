@@ -6,11 +6,17 @@ import static com.raylib.Raylib.GetScreenWidth;
 
 import static com.raylib.Raylib.GetScreenHeight;
 
+import static com.raylib.Raylib.GetCurrentMonitor;
+
+import static com.raylib.Raylib.GetMonitorHeight;
+
 import static com.raylib.Raylib.GetMousePosition;
 
 import static com.raylib.Raylib.IsMouseButtonDown;
 
 import static com.raylib.Raylib.GetMouseWheelMove;
+
+import static com.raylib.Raylib.GetMouseDelta;
 
 import static com.raylib.Raylib.IsKeyDown;
 
@@ -138,15 +144,17 @@ public class JaylibImGui {
     /**
      * Jaylib ImGui Version.
      */
-    public static final String jlImGuiVersion = "1.0.1";
+    public static final String jlImGuiVersion = "1.1.1";
 
     /**
      * Setup ImGui.
      *
      * @param glslV GLSL Version.
+     * @param font ImGui window font.
+     * @param fontSize ImGui window font size.
      * @param useIni Use INI save file?
      */
-    public static void setupImGui(int glslV, boolean useIni) {
+    public static void setupImGui(int glslV, String font, int fontSize, boolean useIni) {
         ImGui.createContext();
 
         io = ImGui.getIO();
@@ -157,6 +165,12 @@ public class JaylibImGui {
 
         if(!useIni) {
             io.setIniFilename(null);
+        }
+
+        if(font != null && fontSize > 0) {
+            ImGui.getIO().getFonts().addFontFromFileTTF(font, fontSize);
+
+            ImGui.getIO().getFonts().build();
         }
 
         createCapabilities();
@@ -209,15 +223,30 @@ public class JaylibImGui {
      * Setup ImGui.
      *
      * @param glslV GLSL Version.
+     * @param font ImGui window font.
+     * @param fontSize ImGui window font size.
+     */
+    public static void setupImGui(int glslV, String font, int fontSize) {
+        setupImGui(glslV, font, fontSize, false);
+    }
+
+    /**
+     * Setup ImGui.
+     *
+     * @param glslV GLSL Version.
      */
     public static void setupImGui(int glslV) {
-        setupImGui(glslV, false);
+        setupImGui(glslV, null, 0, false);
     }
 
     /**
      * Process ImGui things..
      */
     public static void process() {
+        if(GetScreenHeight() > GetMonitorHeight(GetCurrentMonitor())) {
+            System.err.println("JlImGui WARNING: GetScreenHeight() > GetMonitorHeight(GetCurrentMonitor()) == true; Restore window height to normal (<MonitorHeight)!");
+        }
+
         io.setDisplaySize(GetScreenWidth(), GetScreenHeight());
 
         io.setDisplayFramebufferScale(GetWindowScaleDPI().x(), GetWindowScaleDPI().y());
@@ -229,6 +258,8 @@ public class JaylibImGui {
         io.setMouseDown(2, IsMouseButtonDown(2));
 
         io.setMouseWheel(GetMouseWheelMove());
+
+        io.setMouseDelta(GetMouseDelta().x(), GetMouseDelta().y());
 
         for(int key: keysMap) {
             io.setKeysDown(key, IsKeyDown(key));
