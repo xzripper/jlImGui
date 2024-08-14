@@ -1,4 +1,4 @@
-<h1 align="center">JlImGui.</h1><p align="center"><a href="https://github.com/violent-studio/vsdk/tree/main/vsdk/r_utilities/shader_playground"><img src="https://github.com/violent-studio/vsdk/blob/main/vsdk/r_utilities/shader_playground/utility.png?raw=true"></a></p>
+<h1 align="center">JlImGui.</h1><p align="center"><a href="https://github.com/xzripper/gsdk/tree/main/gsdk/r_utilities/shader_playground"><img src="https://github.com/xzripper/gsdk/blob/main/gsdk/r_utilities/shader_playground/utility.png?raw=true"></a></p>
 
 ```java
 import com.raylib.Raylib;
